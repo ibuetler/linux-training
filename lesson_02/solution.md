@@ -14,7 +14,7 @@ ifconfig -a
 * install putty on your Windows computer
 
 ## ssh from Windows to Linux using putty
-* open a cmd.exe (Windows + TAB and type cmd) and type "putty"
+* open a cmd.exe (Windows + TAB and type putty) 
 ```
 putty
 ```
@@ -38,14 +38,29 @@ apt-get dist-upgrade
 
 ## scp from Windows to Linux using pscp
 * open a cmd.exe (Windows + TAB and type cmd)
+* in cmd.exe type "pscp" and read the output
 ```
 pscp
 ```
-* create a test file and add some text in it, save and close notepad
+* create a test file on your Windows host and add some text in it, save and close notepad
 ```
 notepad text.txt
 ```
 * in your cmd.exe type 
 ```
-pscp.exe test.txt hacker@ip-of-your-linux:
+pscp.exe test.txt hacker@ip-address-of-your-linux:
+pscp.exe test.txt -l ip-address-of-your-linux:
 ```
+
+## scp from Linux to Windows using pscp
+* open a cmd.exe (or use the cmd.exe that is still open)
+* delete the test.txt with
+```
+del test.txt
+```
+* in cmd.exe type the following commands
+```
+pscp.exe -l hacker ip-address-of-your-linux:test.txt .
+pscp.exe ibuetler@ip-address-of-your-linux:test.txt .
+```
+
